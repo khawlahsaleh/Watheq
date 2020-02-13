@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.example.proto.model.Certificate;
 @Repository
 @Transactional
-public interface CerRepository extends CrudRepository<Certificate, Long>{
+public interface CerRepository extends CrudRepository<Certificate, String>{
 	@Modifying
 	@Query("Update Certificate Certificate SET Certificate.uniType = :uniType WHERE Certificate.cerId = :cerId ")
 	void updateUniType(@Param("cerId") String cerId, @Param("uniType") String uniType); 

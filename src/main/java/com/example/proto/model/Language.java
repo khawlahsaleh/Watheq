@@ -71,8 +71,7 @@ public class Language implements Serializable  {
 			Timestamp languge_date, String duration_valid, String languge_attach) {
 		super();
 		Education education=new Education(Edu_name);
-		this.national_id = new Individual("", "", "", "", "", "", "", national_id, "",
-				"", "", null, "");
+		this.national_id = new Individual(national_id);
 		Company company=new Company(CompanyName);
 		this.CompanyName = company;
 		this.Edu_name = education;

@@ -12,17 +12,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+
+
+
+
 @Builder
 @Entity
 @Table(name = "Certificate")
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@Getter
 public class Certificate implements Serializable {
 
 	private static final long serialVersionUID = -3009157732242241606L;
@@ -43,40 +47,44 @@ public class Certificate implements Serializable {
 	private Education Edu_name;
 
 
-	@Column(name = "uniType", nullable= false)
+	@Column(name = "uniType")
 	@NotNull(message = " the university type cannot be Empty ")
 	private String uniType;
 
-	@Column(name = "addBy", nullable= false)
+	@Column(name = "addBy")
 	@NotNull(message = "Should insert who add the certificate ")
 	private String addBy;
 
-	@Column(name = "date_of_certificate", nullable= false)
+	@Column(name = "date_of_certificate")
 	@NotNull(message = " the date of certificate cannot be Empty ")
 	private Timestamp date_of_certificate;
 
-	@Column(name = "GPA", nullable= false)
+	@Column(name = "GPA")
 	@NotNull(message = " the GPA cannot be Empty ")
 	private Double GPA ;
 
-	@Column(name = "degree", nullable= false)
+	@Column(name = "degree")
 	@NotNull(message = " the degree cannot be Empty ")
 	private String degree;
 
-	@Column(name = "major", nullable= false)
+	@Column(name = "major")
 	@NotNull(message = " the major cannot be Empty ")
 	private String major;
 
+
 	@Builder
-	public Certificate( String cerId, String national_id, String Edu_iD, String Edu_name, String uniType,
-			String addBy, Timestamp date_of_certificate, Double GPA, String degree, String major) {
-		super();
-		Education education=new Education(Edu_iD,Edu_name);
-		this.national_id = new Individual("", "", "", "", "", "", "", national_id, "",
-				"", "", null, "");
+	public Certificate(String cerId, Individual national_id, Education Edu_iD, Education Edu_name,
+			String uniType,
+			String addBy,
+			Timestamp date_of_certificate,
+			Double GPA,
+			String degree,
+			String major) {
+
 		this.cerId = cerId;
-		this.Edu_iD =  education;
-		this.Edu_name= education;
+		this.national_id = national_id;
+		this.Edu_iD = Edu_iD;
+		this.Edu_name = Edu_name;
 		this.uniType = uniType;
 		this.addBy = addBy;
 		this.date_of_certificate = date_of_certificate;
@@ -85,13 +93,6 @@ public class Certificate implements Serializable {
 		this.major = major;
 	}
 
-	public Certificate(String uniType, String addBy, Timestamp date_of_certificate, Double GPA, String degree, String major) {
-		super();
-		this.uniType = uniType;
-		this.addBy = addBy;
-		this.date_of_certificate = date_of_certificate;
-		this.GPA = GPA;
-		this.degree = degree;
-		this.major = major;
-	}
+
+
 }

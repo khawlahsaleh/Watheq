@@ -3,10 +3,10 @@ package com.example.proto.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.proto.DTO.CompanyDTO;
-import com.example.proto.mapperImp.CompanyMapperImp;
-import com.example.proto.model.Company;
-import com.example.proto.repository.ComRepository;
+import com.example.proto.DTO.ExperienceDTO;
+import com.example.proto.mapperImp.ExperienceMapperImp;
+import com.example.proto.model.Experience;
+import com.example.proto.repository.ExpRepository;
 
 import lombok.AllArgsConstructor;
 
@@ -14,23 +14,25 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class ExperienceService {
 	@Autowired
-	ComRepository comRepository; 
-	private static final CompanyMapperImp companyMapper = new CompanyMapperImp();
+	ExpRepository expRepository; 
+	private static final ExperienceMapperImp experienceMapper = new ExperienceMapperImp();
 	
-	public CompanyDTO createcompanyDTO(CompanyDTO companyDTO) {
-		Company company = Company.builder()
-				.email(companyDTO.getEmail())
-				.phoneNumber(companyDTO.getPhone_number())
-				.address(companyDTO.getAddress())
-				.password(companyDTO.getPassword())
-				.cr(companyDTO.getCr())
-				.companyname(companyDTO.getCompanyname())
-				.startDate(companyDTO.getStartDate())
-				.endDate(companyDTO.getEndDate())
+	public ExperienceDTO createExperienceDTO(ExperienceDTO experienceDTO) {
+		Experience experience = Experience.builder()
+				.exp_id(experienceDTO.getExp_id())
+				.national_id(experienceDTO.getNational_id())
+				.CompanyName(experienceDTO.getCompanyName())
+				.Edu_name(experienceDTO.getEdu_name())
+				.ePosition(experienceDTO.getEPosition())
+				.sDate(experienceDTO.getSDate())
+				.eDate(experienceDTO.getEDate())
+				.addBy(experienceDTO.getAddBy())
+				.refName(experienceDTO.getRefName())
+				.refEmail(experienceDTO.getRefEmail())
 				.build();
 
-		Company savecompany = comRepository.save(company);
-        return companyMapper.domainToDto(savecompany);
+		Experience saveExperience = expRepository.save(experience);
+        return experienceMapper.domainToDto(saveExperience);
         
     }
 	

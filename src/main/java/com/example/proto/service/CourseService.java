@@ -21,7 +21,7 @@ public class CourseService {
 	CouRepository couRepository; 
 	private static final CourseMapperImp CourseMapper = new CourseMapperImp();
 	
-	public CourseDTO createcompanyDTO(CourseDTO courseDTO) {
+	public CourseDTO createCourseDTO(CourseDTO courseDTO) {
 		Course course = Course.builder()
 				.courseID(courseDTO.getCourseID())
 				.national_id(courseDTO.getNational_id())

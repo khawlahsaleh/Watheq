@@ -16,7 +16,7 @@ public class IndiController {
 //	LanRepository Lanrepository;
 	IndiService indiService;
 
-	IndiDTO indiDTO = new IndiDTO("rawa@gmail.com","05318662","Riyadh22","98764eelks", "rawa","khaled","alorini" ,"10949990","F" , "S", "game", Timestamp.valueOf("1996-05-16 00:00:00.000"),"Yes"); 
+	IndiDTO indiDTO = new IndiDTO("khawlas22al711@gmail.com","0541824338","Riyuadh52", "rawa","1022225065","khawla","saleh" ,"alorini","F" , "S", "game", Timestamp.valueOf("1996-05-16 00:00:00.000"),"Yes"); 
 	@RequestMapping("/insertIndi")
 	public String insert(){
 		indiService.createIndividualDTO(indiDTO);

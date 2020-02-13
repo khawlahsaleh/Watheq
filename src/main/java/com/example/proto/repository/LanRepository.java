@@ -14,7 +14,7 @@ import com.example.proto.model.Language;
 @Repository
 @Transactional
 
-public interface LanRepository extends CrudRepository<Language, Long>{
+public interface LanRepository extends CrudRepository<Language, String>{
 //	@Modifying
 //	@Query("Update Language language SET language.languge_id = :languge_id WHERE language.languge_id = :languge_id ")
 //	void updateLanguge_id(@Param("languge_id") String languge_id);//, @Param("languge_id") String languge_id); 

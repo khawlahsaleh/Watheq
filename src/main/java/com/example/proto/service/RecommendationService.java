@@ -3,13 +3,10 @@ package com.example.proto.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.proto.DTO.CompanyDTO;
+
 import com.example.proto.DTO.RecommendationDTO;
-import com.example.proto.mapperImp.CompanyMapperImp;
 import com.example.proto.mapperImp.RecommendationMapperImp;
-import com.example.proto.model.Company;
 import com.example.proto.model.Recommendation;
-import com.example.proto.repository.ComRepository;
 import com.example.proto.repository.RecoRepository;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +20,7 @@ public class RecommendationService {
 	
 	public RecommendationDTO createRecommendationDTO(RecommendationDTO recommendationDTO) {
 		Recommendation recommendation = Recommendation.builder()
-				.reco_id(recommendationDTO.getNational_id())
+				.reco_id(recommendationDTO.getReco_id())
 				.national_id(recommendationDTO.getNational_id())
 				.CompanyName(recommendationDTO.getCompanyName())
 				.Edu_name(recommendationDTO.getEdu_name())

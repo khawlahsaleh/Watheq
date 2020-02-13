@@ -14,7 +14,7 @@ import com.example.proto.model.Individual;
 // Original Repository 
 @Repository
 @Transactional
-public interface InRepository extends CrudRepository<Individual, Long>{
+public interface InRepository extends CrudRepository<Individual, String>{
   //  List<Individuals> findOne( long i_id);
   // List<Individual> findByLastName(String lastName);
 	@Modifying

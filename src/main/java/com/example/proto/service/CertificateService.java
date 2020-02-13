@@ -19,15 +19,15 @@ public class CertificateService {
 	
 	private static final CertificateMapperImp CertificateMapper = new CertificateMapperImp();
 	
-	public CertificateDTO createcompanyDTO(CertificateDTO certificateDTO) {
+	public CertificateDTO createCertificateDTO(CertificateDTO certificateDTO) {
 		Certificate certificate = Certificate.builder()
 				.cerId(certificateDTO.getCerId())
 				.national_id(certificateDTO.getNational_id())
 				.Edu_iD(certificateDTO.getEdu_iD())
 				.Edu_name(certificateDTO.getEdu_name())
-				.uniType(certificateDTO.getUni_type())
+				.uniType(certificateDTO.getUniType())
 				.addBy(certificateDTO.getAddBy())
-				.date_of_certificate(certificateDTO.getDoc())
+				.date_of_certificate(certificateDTO.getDate_of_certificate())
 				.GPA(certificateDTO.getGPA())
 				.degree(certificateDTO.getDegree())
 				.major(certificateDTO.getMajor())

@@ -21,7 +21,7 @@ public class ComController {
 	 Company company = new Company();
 	 
 	 
-	 CompanyDTO companyDTO = new CompanyDTO("Elm1@sa.sa","011222233","riyadh113","123334","67346337634254","El1m",Timestamp.valueOf("1983-07-12 21:30:55.888"),
+	 CompanyDTO companyDTO = new CompanyDTO("Elm21@sa.sa","0531884338","riyadh113","123334","47446337634254","Ell1m",Timestamp.valueOf("1983-07-12 21:30:55.888"),
 			 Timestamp.valueOf("1983-07-12 21:30:55.888"));
 	 
 	 
@@ -35,28 +35,21 @@ public class ComController {
 }
 	   
 	   @RequestMapping("/updateEmailCompany")
-	   public String updateEmail(){
-		   companyService.updateEmailcompanyDTO("673467634254", "Elm55@elm.sa");
-		 //  Comrepository.save(new Company("Elm@elm.sa","0112233","riyadh","1234","673467634254","Elm",Timestamp.valueOf("1983-07-12 21:30:55.888"),Timestamp.valueOf("1983-07-12 21:30:55.888")));
-		  // Comrepository.save(new Company("Elm@elm.sa","0112233","riyadh","1234","673467634254","Elm",Timestamp.valueOf("1983-07-12 21:30:55.888"),Timestamp.valueOf("1983-07-12 21:30:55.888")));
-     
+	   public CompanyDTO updateEmail(){
+		 return  companyService.updateEmailcompanyDTO("47446337634254", "Ellm77@elm.sa");
+		 
+    // return companyDTO;
+}
+	   @RequestMapping("/findCompany")
+	   public String find(){
+		 companyService.getById("47446337634254"); 
      return "Done for Company";
 }
 	   
-	   
-	   
-//
-//		@RequestMapping("/findallCom")
-//		public String findAll(){
-//			String result = "<html>";
-//
-//			for(Company Inte : Comrepository.findAll()){
-//				result += "<div>" + Inte.toString() + "</div>";
-//			}
-//			for(Language Lang : Lanrepository.findAll()){
-//				result += "<div>" + Lang.toString() + "</div>";
-//			}
-//
-//			return result + "</html>";
-//		}
+	   @RequestMapping("/deleteCompany")
+	   public String  deleteCompany(){
+		   companyService.deleteCompany("47446337634254"); 
+		   
+     return "Done for Company";
+}
 }

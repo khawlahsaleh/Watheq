@@ -7,8 +7,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -75,12 +73,11 @@ public class Recommendation implements Serializable {
 	private String reco_institute_name;
 
 	@Builder
-	public Recommendation(String reco_id, String national_id, String CompanyName, String Edu_name, String reco_from,
+	public Recommendation( String national_id,String reco_id, String CompanyName, String Edu_name, String reco_from,
 			Timestamp reco_date, String reco_addby, String reco_attach, String reco_institute_name) {
 		super();
 		Education education=new Education(Edu_name);
-		this.national_id = new Individual("", "", "", "", "", "", "", national_id, "",
-				"", "", null, "");
+		this.national_id = new Individual(national_id);
 		Company company=new Company(CompanyName);
 		this.reco_id = reco_id;
 		this.CompanyName = company;

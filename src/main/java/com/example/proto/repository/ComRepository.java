@@ -15,7 +15,7 @@ import com.example.proto.model.Company;
 @Repository
 @Transactional
 
-public interface ComRepository extends CrudRepository<Company, Long>{
+public interface ComRepository extends CrudRepository<Company, String>{
 	@Modifying
 	@Query("Update Company company SET company.email = :email WHERE company.cr = :cr ")
 	void updateEmail(@Param("cr") String cr, @Param("email") String email); 

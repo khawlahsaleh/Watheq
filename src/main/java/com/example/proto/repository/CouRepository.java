@@ -14,7 +14,7 @@ import com.example.proto.model.Course;
 @Repository
 @Transactional
 
-public interface CouRepository extends CrudRepository<Course, Long>{
+public interface CouRepository extends CrudRepository<Course, String>{
 	@Modifying
 	@Query("Update Course course SET course.nameCourse = :nameCourse WHERE course.courseID = :courseID ")
 	void updateNameCourse(@Param("courseID") String courseID, @Param("nameCourse") String nameCourse); 

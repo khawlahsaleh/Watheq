@@ -14,7 +14,7 @@ import com.example.proto.model.Experience;
 @Repository
 @Transactional
 
-public interface ExpRepository extends CrudRepository<Experience, Long>{
+public interface ExpRepository extends CrudRepository<Experience, String>{
 	@Modifying
 	@Query("Update Experience Experience SET Experience.ePosition = :ePosition WHERE Experience.Exp_id = :Exp_id ")
 	void updateEPosition(@Param("Exp_id") String Exp_id, @Param("ePosition") String ePosition); 

@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -26,15 +27,16 @@ import lombok.Setter;
 public class Company extends W_User implements Serializable  {
 
 	private static final long serialVersionUID = -3009157732242241606L;
-	//@Id
-	@Column(name = "cr", unique=true, nullable= false)
+	@Id
+	@Column(name = "cr", unique=true)
 	@NotNull(message = " the CR number for company cannot be Empty ")
 	private String cr;
 
 	// Name of company
-	@Column(name = "companyName", unique=true, nullable = false)
+	
+	@Column(name = "companyName", unique=true)
 	@NotNull(message = " the company name cannot be Empty ")
-	private String companyname;
+	private String companyName;
 
 	
 	// cr starting Date
@@ -52,23 +54,25 @@ public class Company extends W_User implements Serializable  {
 	
 
 	@Builder
-	public Company(String email, String phoneNumber, String address, String password, String cr, String companyname,
+	public Company(String email, String phoneNumber, String address, String password, String cr, String companyName,
 			Timestamp startDate, Timestamp endDate) {
 		super(email, phoneNumber, address, password);
 		this.cr = cr;
-		this.companyname = companyname;
+		this.companyName = companyName;
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
 	
 
-	public Company(String companyname) {
-		this.companyname = companyname;
+	public Company(String companyName) {
+		this.companyName = companyName;
 	}
+	
+	
 	
 	@Override
 	public String toString() {
-		return "Company [cr=" + cr + ", companyname=" + companyname + ", startDate=" + startDate + ", endDate="
+		return "Company [cr=" + cr + ", companyname=" + companyName + ", startDate=" + startDate + ", endDate="
 				+ endDate + "]";
 	}
 

@@ -14,7 +14,7 @@ import com.example.proto.model.Recommendation;
 @Repository
 @Transactional
 
-public interface RecoRepository extends CrudRepository<Recommendation, Long>{
+public interface RecoRepository extends CrudRepository<Recommendation, String>{
 	@Modifying
 	@Query("Update Recommendation recommendation SET recommendation.reco_from = :reco_from WHERE recommendation.reco_id = :reco_id ")
 	void updateReco_from(@Param("reco_id") String reco_id, @Param("reco_from") String reco_from); 

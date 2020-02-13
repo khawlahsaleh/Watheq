@@ -11,8 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "course")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class Course implements Serializable {
@@ -30,7 +30,8 @@ public class Course implements Serializable {
 
 	//user_id
 	@Id
-	@Column(name = "courseID", nullable= false, unique=true)
+	@Column(name = "courseID", unique=true)
+	@NotNull(message = " the Course id  number for company cannot be Empty ")
 	private String courseID;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false , cascade=CascadeType.ALL)
@@ -61,19 +62,19 @@ public class Course implements Serializable {
 	private Timestamp endDate;
 
 	@Builder
-	public Course(String courseID, String national_id, String CompanyName, String Edu_name, String nameCourse,
+	public Course(String courseID,Individual national_id, Company CompanyName, Education Edu_name, String nameCourse,
 			String addedBy, String courseAttch, Timestamp startDate, Timestamp endDate) {
 		// Individual individual = Individual.builder().national_id(individual.getNational_id()).build();
 		//Company company = Company.builder().companyname(company.getCompanyname()).build();
 		//this.national_id = individual()
 		
 		this.courseID = courseID;
-		Education education=new Education(Edu_name);
-		this.national_id = new Individual("", "", "", "", "", "", "", national_id, "",
-				"", "", null, "");
-		Company company=new Company(CompanyName);
-		this.CompanyName = company;
-		this.Edu_name = education;
+//		Education education=new Education(Edu_name);
+//		this.national_id = new Individual( national_id);
+//		Company company=new Company(CompanyName);
+		this.national_id= national_id;
+		this.CompanyName = CompanyName;
+		this.Edu_name = Edu_name;
 		this.nameCourse = nameCourse;
 		this.addedBy = addedBy;
 		this.courseAttch = courseAttch;
